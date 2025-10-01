@@ -1,152 +1,110 @@
-%-------------------------
-% Resume in LateX
-% Author : Sourabh Bajaj
-% License : MIT
-%------------------------
-
-\documentclass[letterpaper,11pt]{article}
-
+\documentclass[12pt]{article}
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
+\usepackage[margin=0.65in, top=0.5in, bottom=0.6in]{geometry}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\input{glyphtounicode}
+\pagestyle{empty} % remove page numbers
 
-\pagestyle{fancy}
-\fancyhf{} % Clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\familydefault}{\sfdefault}
 
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+% Section formatting
+\newcommand{\resumeSection}[1]{\vspace{6pt}\noindent\textbf{\large #1}\vspace{3pt}\hrule\vspace{5pt}}
 
-\urlstyle{same}
-
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate PDF is machine readable/ATS parsable
-\pdfgentounicode=1
-
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[2]{
-  \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
-  }
+% Entry formatting (default for Education/Experience)
+\newcommand{\resumeEntry}[4]{
+  \noindent\textbf{#1}%
+  \if\relax\detokenize{#2}\relax\else \hfill #2\fi \\
+  \if\relax\detokenize{#3}\relax\else \textit{#3}\fi%
+  \if\relax\detokenize{#4}\relax\else \hfill \textit{#4}\fi
+  \vspace{-2pt} % normal spacing
 }
 
-% Just in case someone needs a heading that does not need to be in a list
-\newcommand{\resumeHeading}[4]{
-    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
+% Project entry formatting (tighter spacing)
+\newcommand{\resumeProject}[2]{
+  \noindent\textbf{#1} \hfill #2
+  \vspace{-1pt} % tighter spacing for Projects only
 }
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
-
-\newcommand{\resumeSubSubheading}[2]{
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
-}
-
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
-
-\renewcommand{\labelitemii}{$\circ$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-%-------------------------------------------
-%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% Bullets with compact spacing
+\newenvironment{resumeItemize}{
+  \begin{itemize}[leftmargin=0.15in, label={--}, itemsep=1pt, topsep=0pt]
+}{\end{itemize}}
 
 \begin{document}
 
-%----------HEADING-----------------
-\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://sourabhbajaj.com/}{\Large Dev manghat}} & Email: \href{mailto:mangha_d1@denison.edu}{sourabh@sourabhbajaj.com}\\
-  \href{https://sourabhbajaj.com/}{sourabhbajaj.com} & Mobile: \href{tel:+11234567890}{+1-740-404-8653} \\
-\end{tabular*}
+% Header
+\begin{center}
+{\Large \textbf{Dev Manghat}} \\[3pt]
+\href{mailto:mangha_d1@denison.edu}{mangha\_d1@denison.edu} \,\textbar\, 
+\href{https://github.com/devManghat005}{github.com/devManghat005} \,\textbar\, 
+(740) 404-8653
+\end{center}
 
+% Education
+\resumeSection{EDUCATION}
+\resumeEntry{Denison University, Granville, OH}{2023 -- 2027}{B.S. Computer Science, B.A. Economics}{}
+\begin{resumeItemize}
+  \item Cumulative GPA: 3.4/4.0
+\end{resumeItemize}
 
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Denison University}{Columbus, OH}
-      {Bachelor of Science in Computer Science; Bachelor of Art in Economics; GPA: 3.60}{Aug 2023 -- May 2027}
-  \resumeSubHeadingListEnd
+% Experience
+\resumeSection{PROFESSIONAL EXPERIENCE}
 
-%-----------SKILLS-----------------
-\section{Technical Skills}
-  \resumeSubHeadingListStart
-    \resumeSubItem{Programming Languages}{Python, C++, SQL, Javascript, HTML, CSS, R, Latex, Git}
-    \resumeSubItem{Technologies}{GitHub, Android Studio, Pandas, NumPy, Regex, Microsoft Excel, Microsoft Word}
-  \resumeSubHeadingListEnd
-%-----------PROJECTS-----------------
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{Financial Literacy Website}
-      {Generated over \$1,000 in referral earnings by designing and developing a website that educated users on the benefits of credit card usage and encouraged sign-ups through my referral link.}
-    \resumeSubItem{Python Automation Scripts}
-      {Designed and implemented a Python script to automate the calculation of monthly work hours and corresponding pay. Script executes daily to update and summarize work hours and payment details at month-end.}
-    \resumeSubItem{Android Ap}
-      {Designed and developed a fitness and health application for Android devices that uses SQL database to track progress.}
-    \resumeSubItem{Password Game}
-      {Built an interactive web game using JavaScript and HTML, challenging users with escalating regex-based password requirements to enhance problem-solving engagement.}
-  \resumeSubHeadingListEnd
+\resumeEntry{Software Engineer}{May 2025 -- Aug 2025}{Tata Technologies}{Mumbai, India}
+\begin{resumeItemize}
+  \item Designed and built software solutions for client projects.
+  \item Assisted with system integration and debugging.
+  \item Optimized performance and improved reliability.
+\end{resumeItemize}
 
-%-----------EXPERIENCE-----------------
-\section{Experience}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Community Advivor (RA)}{Granville, OH}
-      {Residential Communities \& Housing}{May 2025 -- Present}
-      \begin{itemize}
-          \item Demonstrated leadership and leveraged organizational and problem-solving skills by mentoring peers and resolving conflicts.
-          \item Created an inclusive and supportive environment for 25+ upperclassmen residents, addressing social and academic concerns while managing on-call responsibilities for more than 300 residents.
-    \end{itemize}
+\resumeEntry{Community Advisor}{May 2025 -- Present}{Denison University}{Ohio}
+\begin{resumeItemize}
+  \item Mentored peers and resolved conflicts, fostering a supportive community for 25+ residents.
+  \item Managed on-call duties for 300+ residents; reduced incident reports by 15\%.
+\end{resumeItemize}
 
-\resumeSubheading
-      {Research Assistant}{Granville, OH}
-      {Mathematics Department}{January 2025 -- May 2025}
-      \begin{itemize}
-          \item Conducted research on Election Forecasting using BERT embeddings and Ridge Regression to model Congressional ideology, and applied entropy-based methods to quantify intra-party 
-          \item Presented our research at the Indiana-Kentucky-Ohio MAA Tri-Section Meeting.
-    \end{itemize}
+\resumeEntry{Research Assistant}{Jan 2024 -- Present}{Denison University}{Ohio}
+\begin{resumeItemize}
+  \item Modeled Congressional ideology with BERT embeddings and Ridge Regression.
+  \item Applied entropy-based methods to measure intra-party competition.
+  \item Presented model at Indiana-Kentucky-Ohio MAA Tri-Section Meeting.
+\end{resumeItemize}
 
+% Projects
+\resumeSection{PROJECTS}
 
-%-----------RELEVENT COURSEWORK-----------------
-\section{Relevant Coursework}
-Data Structures • Applied Statistics • Linear Algebra • Discrete Mathematics • Multivariable Calculus
+\resumeProject{Donor Retention (XGBoost + SHAP)}{Mar 2025 -- May 2025}
+\begin{resumeItemize}
+  \item Developed a machine learning model using XGBoost and SHAP to predict donor retention using real world historical transaction data from Sam’s Fans, a nonprofit organization.
+\end{resumeItemize}
+
+\resumeProject{Financial Literacy Website}{Nov 2024 -- Jan 2025}
+\begin{resumeItemize}
+  \item Built a web page using JavaScript and HTML to educate users on the benefits of credit card usage.
+  \item Generated over \$1,000 in referral earnings using my website by encouraging sign-ups through my referral link.
+\end{resumeItemize}
+
+\resumeProject{Python Automation Scripts}{Aug 2024 -- Dec 2024}
+\begin{resumeItemize}
+  \item Designed and implemented a Python script to automate the calculation of monthly work hours and corresponding pay based on Google calendar events.
+\end{resumeItemize}
+
+\resumeProject{Password Game}{Oct 2024 -- Nov 2024}
+\begin{resumeItemize}
+  \item Designed regex-based password challenge game in JavaScript/HTML.
+\end{resumeItemize}
+
+\resumeProject{Android Fitness App}{Jan 2023 -- Aug 2023}
+\begin{resumeItemize}
+  \item Designed and developed a fitness and health application using Java and XML for Android devices that uses SQL database to track progress.
+\end{resumeItemize}
+
+% Coursework
+\resumeSection{RELEVANT COURSEWORK}
+Data Structures, Data Systems, Linear Algebra, Multivariable Calculus, Applied Statistics
+
+% Skills
+\resumeSection{TECHNICAL SKILLS}
+Python; Familiar with C++, Git, SQL, Dart, JavaScript, HTML, CSS
 
 \end{document}
